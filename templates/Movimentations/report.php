@@ -42,7 +42,7 @@
         <?php foreach ($movimentations as $movimentation): ?>
             <tr>
                 <td><?= h($movimentation->id) ?></td>
-                <td><?= h($movimentation->description) ?></td>
+                <td><?= h($movimentation->descriptions) ?></td>
                 <td><?= $movimentation->type == 0 ? 'Saída' : 'Entrada'; ?></td>
                 <td><?= $this->Number->currency($movimentation->value, 'BRL') ?></td>
                 <td><?= h($movimentation->created->format('d/m/Y H:i:s')) ?></td>
