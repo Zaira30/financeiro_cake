@@ -34,8 +34,10 @@ class MovimentationsController extends AppController
         ]);
 
         // Verificar filtros por tipo
-        if ($this->request->getQuery('type')) {
-            $query->where(['Movimentations.type' => $this->request->getQuery('type')]);
+        $type = $this->request->getQuery('type');
+        if ($type !== null && $type !== '') {
+            // Converter o valor para inteiro, pois os selects podem passar strings
+            $query->where(['Movimentations.type' => (int)$type]);
         }
 
         // Verificar filtro por data de início
